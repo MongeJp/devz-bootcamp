@@ -1,0 +1,9 @@
+{
+  "name": "devz-bootcamp",
+  "version": "1.0.0",
+  "description": "Devz bootcamp coding challenges",
+  "main": "index.js",
+  "repository": "https://github.com/MongeJp/devz-bootcamp",
+  "author": "MongeJp",
+  "license": "MIT"
+}
