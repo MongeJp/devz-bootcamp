@@ -2,7 +2,7 @@ const twoSum = (nums: Array<number>, target: number): Array<number> => {
     let dictionary = {};
     for (let index = 0; nums.length > index; index++) {
         const element = nums[index];
-        const result = (target - element).toString();
+        const result = target - element;
         if (dictionary.hasOwnProperty(result)) {
             return [dictionary[result], index];
         }
