@@ -1,12 +1,13 @@
 class Node {
   value: any;
-  next: Node;
-  constructor(value: any) {
+  next: any;
+  constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
-class MySinglyLinkedList {
+
+export class SinglyLinkedList {
   head: Node;
   tail: Node;
   length: number;
@@ -16,29 +17,29 @@ class MySinglyLinkedList {
     this.length = 1;
   }
 
-  append(newData) {
+  append(newData): SinglyLinkedList {
     const newNode = new Node(newData);
     let currentNode = this.head;
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
-    // return this;
+    return this;
   }
 
-  prepend(newData) {
+  prepend(newData): SinglyLinkedList {
     const newNode = new Node(newData);
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
-    // return this;
+    return this;
   }
 
-  insert(index, newData) {
+  insert(index, newData): SinglyLinkedList {
     if (index >= this.length) {
       return this.append(newData);
     }
 
-    if (index == 1) {
+    if (index == 0) {
       return this.prepend(newData);
     }
     const newNode = new Node(newData);
@@ -47,10 +48,10 @@ class MySinglyLinkedList {
     firstPointer.next = newNode;
     newNode.next = tmp;
     this.length++;
-    // return this;
+    return this;
   }
 
-  delete(index) {
+  delete(index): SinglyLinkedList {
     if (index > this.length) {
       return;
     }
@@ -64,9 +65,10 @@ class MySinglyLinkedList {
     }
 
     this.length--;
+    return this;
   }
 
-  getTheIndex(index) {
+  getTheIndex(index: number): Node {
     let currentNode = this.head;
     let counter = 0;
     while (counter < index) {
@@ -76,11 +78,3 @@ class MySinglyLinkedList {
     return currentNode;
   }
 }
-
-let myLinkedList = new MySinglyLinkedList(1);
-myLinkedList.append(2);
-myLinkedList.append(3);
-myLinkedList.append(4);
-// myLinkedList.insert(2, 10);
-myLinkedList.delete(1);
-myLinkedList;
