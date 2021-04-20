@@ -2,15 +2,15 @@ import { SinglyLinkedList } from './singlyLinkedList';
 
 const removeDuplicates = (list: SinglyLinkedList): SinglyLinkedList => {
     let currentNode = list.head;
-    let numbers = new Set();
-    numbers.add(currentNode.value);
+    let values = new Set();
+    values.add(currentNode.value);
     while (currentNode.next !== null) {
         let tmp = currentNode.next;
-        if (numbers.has(tmp.value)) {
+        if (values.has(tmp.value)) {
             currentNode.next = tmp.next;
             list.length--;
         } else {
-            numbers.add(currentNode.next.value);
+            values.add(currentNode.next.value);
             currentNode = currentNode.next;
         }
     }
