@@ -18,7 +18,8 @@ const removeDuplicates = (list: SinglyLinkedList): SinglyLinkedList => {
     return list;
 }
 
-const linkedList = new SinglyLinkedList(1);
+const linkedList = new SinglyLinkedList();
+linkedList.append(1);
 linkedList.append(2);
 linkedList.append(3);
 linkedList.append(3);
