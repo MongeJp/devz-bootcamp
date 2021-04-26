@@ -11,9 +11,11 @@ export class SinglyLinkedList {
   head: Node;
   tail: Node;
   length: number;
+
   constructor() {
     this.length = 0;
   }
+
   append(newData): SinglyLinkedList {
     const newNode = new Node(newData);
     if (this.length == 0) {
@@ -25,7 +27,7 @@ export class SinglyLinkedList {
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
-    // return this;
+    return this;
   }
 
   prepend(newData): SinglyLinkedList {
@@ -81,45 +83,3 @@ export class SinglyLinkedList {
   }
 }
 
-const firstList = new SinglyLinkedList();
-firstList.append(2);
-firstList.append(3);
-firstList.append(1);
-// 2 -> 3 -> 1
-
-const secondList = new SinglyLinkedList();
-secondList.append(6);
-secondList.append(0);
-secondList.append(3);
-// 6 -> 0 -> 3
-
-const sumLists = (linkedListOne, linkedListTwo): SinglyLinkedList => {
-  console.log(linkedListOne);
-  return;
-  let firstNumber = sumListValues(linkedListOne);
-  let secondNumber = sumListValues(linkedListTwo);
-  let total = firstNumber + secondNumber;
-  let newLinkedList = new SinglyLinkedList();
-  let totalInStr = total.toString();
-  for (let index = 0; index < totalInStr.length; index++) {
-    const element = totalInStr[index];
-    newLinkedList.append(element);
-  }
-  return newLinkedList;
-};
-
-const sumListValues = (list: SinglyLinkedList) => {
-  let currentNode = list.head;
-  let value = '';
-  value = value + currentNode.value;
-  console.log(value); return;
-  while (currentNode.next !== null) {
-    console.log(currentNode.next);
-    let nextNode = currentNode.next;
-    value = value + nextNode.value;
-    nextNode = currentNode.next;
-  }
-  return Number(value);
-};
-
-sumLists(firstList, secondList);
